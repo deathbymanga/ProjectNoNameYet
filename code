@@ -1,15 +1,18 @@
-int grade;
+
+            int grade;
             int x = 0;
             
             ArrayList grArrList = new ArrayList();
 
-            Console.Write("What is your homework score?");
-            grade = int.Parse(Console.ReadLine());
-
-            if (grade < 0 && grade > 10) 
+            for(int i=0; i < 5; i++)
             {
-                Console.Write("Please give a different grade (0-10");
-            } else {
-                x++;
-                grArrList.Add(grade);
-            }
+                Console.Write("What is your homework score?");
+                grade = int.Parse(Console.ReadLine());
+
+                if (grade < 0 && grade > 10) 
+                {
+                    Console.Write("Please give a different grade (0-10");
+                } else {
+                    x++;
+                    grArrList.Add(grade);
+                }
