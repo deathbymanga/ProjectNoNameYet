@@ -48,18 +48,17 @@ namespace ConsoleApplication6
             List<List<string>> chart = new List<List<string>>() {new List<string>() {"| |"}};
             int copy = 0;
             int dif = 0;
+            
 
             for (int g = 0; g < 1; )
             {
-                if(k == count)
-                {
-                    g = 1;
-                }
-                for (int n = 0; n < count; n++)
+                int n = 0;
+                
+                while (n < count)
                 {
                     foreach (int element in grArrList)
                     {
-                        if (grArrList[n] == grArrList[element])
+                        if (grArrList[n] == element)
                         {
                             copy++;
                             chart[n][copy] = "|*|";
@@ -67,10 +66,15 @@ namespace ConsoleApplication6
                             dif++;
                         }
                     }
+                    n++;
+                }
+                if (n == count || n > count)
+                {
+                    g = 1;
                 }
             }
 
-            Console.WriteLine(" ");
+            //Console.WriteLine(" ");
 
             for (int q = 0; q < dif; q++)
             {
