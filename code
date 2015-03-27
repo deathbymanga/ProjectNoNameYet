@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,75 +10,68 @@ namespace ConsoleApplication6
     {
         static void Main(string[] args)
         {
+            int grade = 0;
+            int gradex = 0;
+            int grades = 0;
+
+            int x = 0;
+
             int y = 0;
             string ys = "";
 
             int count = 0;
 
-            List<int> grArrList= new List<int>();
+            int avg = 0;
 
-            for (int j = 0; j < 1; )
+            ArrayList grArrList = new ArrayList();
+
+            Console.WriteLine("How many grades are we inputing?");
+            ys = Console.ReadLine();
+            y = int.Parse(ys);
+
+            while (x < y)
             {
-                Console.WriteLine("type numbers when you(0-9). When you feel done, type nothing");
-                ys = Console.ReadLine();
-                if (ys == "")
+                Console.WriteLine("What is your homework score?");
+                grade = int.Parse(Console.ReadLine());
+
+                if (grade < 0 || grade > 10)
                 {
-                    j = 1;
+                    Console.WriteLine("Please give a different grade (0-10");
                 }
                 else
                 {
-                    y = int.Parse(ys);
-                    grArrList.Add(y);
-                    count++;
+                    x++;
+                    grArrList.Add(grade);
                 }
+
             }
 
             Console.WriteLine(" ");
 
             foreach (int element in grArrList)
             {
-                Console.Write("|" + grArrList[element] + "| ");
+                count++;
+                Console.WriteLine("Grade {0}: {1}", count, element);
             }
+            count = 0;
 
-            Console.WriteLine(" ");
+            Console.WriteLine("");
 
-            int k = 0;
-
-            List<List<string>> chart = new List<List<string>>() {"| |"};
-            int copy = 0;
-            int dif = 0;
-
-            for (int g = 0; g < 1; )
+            grArrList.Sort();
+            for (int i = 1; i < y - 1; i++)
             {
-                if(k == count)
-                {
-                    g = 1;
-                }
-                for (int n = 0; n < count; n++)
-                {
-                    foreach (int element in grArrList)
-                    {
-                        if (grArrList[n] == grArrList[element])
-                        {
-                            copy++;
-                            chart[n][copy] = "|*|";
-                        } else {
-                            dif++;
-                        }
-                    }
-                }
+                Console.WriteLine("sorted: {0}", grArrList[i]);
+                gradex = Convert.ToInt32(grArrList[i]);
+                grades += gradex;
+                gradex = 0;
             }
+            avg = grades / (y - 2);
 
-            Console.WriteLine(" ");
+            int s = Convert.ToInt32(grArrList[y]);
 
-            for (int q = 0; q < dif; q++)
-            {
-                for (int p = 0; p < copy; p++)
-                {
-                    Console.Write(chart[dif][copy]);
-                }
-                Console.WriteLine();
-            }
+            Console.WriteLine("Average: {0}", avg);
+            Console.WriteLine("Smallest: {0}", grArrList[0]);
+            Console.WriteLine("Biggest: {0}", (s-1));
         }
     }
 }
