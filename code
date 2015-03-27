@@ -1,28 +1,30 @@
-static void Main(string[] args)
+using System;
+using System.Collections;
+using System.Collections.Generic.List<T>;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication6
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-            int grade = 0;
-            int gradex = 0;
-            int grades = 0;
-
-            int x = 0;
-            int i = 0;
-
             int y = 0;
             string ys = "";
 
             int count = 0;
 
-            int avg = 0;
+            List<int> grArrList= new List<int>();
 
-            ArrayList grArrList = new ArrayList();
-
-            Console.WriteLine("type numbers when you. When you feel done, type 'end'");
-            ys = Console.ReadLine();
-            while (i < 1)
+            for (int j = 0; j < 1; )
             {
-                if (ys != "end")
+                Console.WriteLine("type numbers when you(0-9). When you feel done, type nothing");
+                ys = Console.ReadLine();
+                if (ys == "")
                 {
-                    i = 1;
+                    j = 1;
                 }
                 else
                 {
@@ -34,5 +36,37 @@ static void Main(string[] args)
 
             Console.WriteLine(" ");
 
-            
+            foreach (int element in grArrList)
+            {
+                Console.Write("|" + grArrList[element] + "| ");
+            }
+
+            Console.WriteLine(" ");
+
+            int k = 0;
+            ArrayList<ArrayList<string>> chart = new List<List<string>>();
+            int copy = 0;
+            int column = 0;
+
+            for (int g = 0; g < 1; )
+            {
+                if(k == count)
+                {
+                    g = 1;
+                }
+                for (int n = 0; n < count; n++)
+                {
+                    foreach (int element in grArrList)
+                    {
+                        if (grArrList[n] == grArrList[element])
+                        {
+                            copy++;
+                        } else {
+                            column++;
+                        }
+                    }
+                }
+            }
         }
+    }
+}
