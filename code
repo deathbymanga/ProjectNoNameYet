@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic.List<T>;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,9 +44,10 @@ namespace ConsoleApplication6
             Console.WriteLine(" ");
 
             int k = 0;
-            ArrayList<ArrayList<string>> chart = new List<List<string>>();
+
+            List<List<string>> chart = new List<List<string>>() {"| |"};
             int copy = 0;
-            int column = 0;
+            int dif = 0;
 
             for (int g = 0; g < 1; )
             {
@@ -61,11 +62,23 @@ namespace ConsoleApplication6
                         if (grArrList[n] == grArrList[element])
                         {
                             copy++;
+                            chart[n][copy] = "|*|";
                         } else {
-                            column++;
+                            dif++;
                         }
                     }
                 }
+            }
+
+            Console.WriteLine(" ");
+
+            for (int q = 0; q < dif; q++)
+            {
+                for (int p = 0; p < copy; p++)
+                {
+                    Console.Write(chart[dif][copy]);
+                }
+                Console.WriteLine();
             }
         }
     }
